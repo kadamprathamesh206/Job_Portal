@@ -1,0 +1,68 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="row justify-content-between">
+                <div class="col-auto">
+                    <h3> {{ userType == '3' ? 'Manage' : '' }} Jobs</h3>
+                </div>
+                <div class="col-auto" *ngIf="userType == '2'; else addButton">
+                    <mat-form-field>
+                        <mat-label>Search</mat-label>
+                        <input matInput (keyup)="searchList()" [(ngModel)]="searchvalue">
+                    </mat-form-field>
+                </div>
+                <hr>
+                <div class="col-12 text-center">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Experience</th>
+                                <th>Company</th>
+                                <th>Requirements</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of jobsList">
+                                <td> {{ data.name }} </td>
+                                <td> {{ data.experience }} </td>
+                                <td> {{ data.company.comapny_name }} </td>
+                                <td> {{ data.requirements }} </td>
+                                <td>
+                                    <button *ngIf="userType == '2'" mat-raised-button color="primary"
+                                        (click)="apply(data)">Apply</button>
+
+                                    <ng-container *ngIf="userType == '3'">
+                                        <!-- <button mat-mini-fab color="primary" matTooltip="Edit Job" (click)="edit(data)">
+                                            <mat-icon>edit</mat-icon>
+                                        </button>
+                                        &nbsp;&nbsp;
+                                        <button mat-mini-fab color="warn" matTooltip="Delete Job"
+                                            (click)="delete(data.id)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button> -->
+                                        &nbsp;&nbsp;
+                                        <button mat-mini-fab color="accent" matTooltip="View Applied Candidates"
+                                            [routerLink]="['/applied-candidates']"
+                                            [queryParams]="{email: data.email, name: data.name, company: data.company.comapny_name}">
+                                            <mat-icon>visibility</mat-icon>
+                                        </button>
+                                    </ng-container>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<ng-template #addButton>
+    <div class="col-auto">
+        <button mat-raised-button color="primary" (click)="add()">Add Job</button>
+    </div>
+</ng-template>

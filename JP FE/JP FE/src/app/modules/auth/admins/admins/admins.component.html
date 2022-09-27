@@ -1,0 +1,58 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-10 mt-3">
+
+        <div class="card">
+            <div class="row justify-content-between mt-2" style="padding: 10px;">
+                <div class="col-auto">
+                    <h3>Manage Admins</h3>
+                </div>
+                <div class="col-auto">
+                    <button mat-raised-button color="primary" matTooltip="Add Admin" (click)="add()">
+                        <!-- <mat-icon>add</mat-icon> --> Add Admin
+                    </button>
+                </div>
+
+                <div class="col-12">
+                    <hr>
+                </div>
+
+                <div class="col-12">
+                    <table class="table table-responsive table-hover text-center table-bordered table-striped">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Admin ID</th>
+                                <th>Admin Name</th>
+                                <th>Email</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of adminsList">
+                                <td>{{ data.id }}</td>
+                                <td>{{ data.name }}</td>
+                                <td>{{ data.email }}</td>
+                                <td>
+                                    <button mat-mini-fab color="warn" matTooltip="Delete Admin"
+                                    (click)="delete(data.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-outline-danger" matTooltip="Delete Admin"
+                                        (click)="delete(data.id)">Delete</button> -->
+                                    &nbsp;&nbsp;
+                                    <button mat-mini-fab color="primary" matTooltip="Edit Admin"
+                                    (click)="edit(data)">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <!-- <button type="button" class="btn btn-outline-primary" matTooltip="Edit Admin"
+                                        (click)="edit(data)">Edit</button> -->
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

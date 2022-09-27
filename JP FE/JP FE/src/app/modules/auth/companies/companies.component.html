@@ -1,0 +1,41 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Manage Companies</h3>
+                    <hr>
+                </div>
+                <div class="col-12 text-center">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Location</th>
+                                <th>Phone No</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of companiesList">
+                                <td> {{ data.comapny_name }} </td>
+                                <td> {{ data.email }} </td>
+                                <td> {{ data.location }} </td>
+                                <td> {{ data.no }} </td>
+                                <td>
+                                    <button mat-mini-fab color="warn" matTooltip="Delete Company"
+                                        (click)="delete(data.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

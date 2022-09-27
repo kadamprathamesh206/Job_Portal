@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+    Interview schedule with {{ data.company_name }}
+</h1>
+
+<div mat-dialog-content>
+    <h3>Interview Date and Time</h3>
+    <p> {{ data.interviewObj.interview_date }} {{ data.interviewObj.interview_time }} </p>
+</div>
+
+<div align="center" mat-dialog-actions>
+    <!-- <button mat-button [mat-dialog-close]="">Cancel</button> -->
+    <button mat-raised-button color="primary" [mat-dialog-close]="" cdkFocusInitial>
+        Ok
+    </button>
+</div>

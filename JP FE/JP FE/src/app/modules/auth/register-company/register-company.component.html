@@ -1,0 +1,64 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-6 mt-3">
+
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Candidate Registration Form</h3>
+                    <hr>
+                </div>
+            </div>
+            <form [formGroup]="registrationForm">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Company Name</mat-label>
+                            <input matInput formControlName="comapny_name">
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="col-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                            <mat-error *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.hasError('pattern')">
+                                Email must be of valid format i.e username@domain.xx
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+        
+                    <div class="col-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" formControlName="password">
+                            <mat-hint>Password must be between 2 to 8 characters</mat-hint>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Location</mat-label>
+                            <input matInput formControlName="location">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-6 mt-2">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mobile</mat-label>
+                            <input matInput formControlName="no">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+
+            <div class="row text-center mt-4">
+                <div class="col-12">
+                    <button type="button" mat-raised-button color="primary" [disabled]="registrationForm.invalid" (click)="submit()">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

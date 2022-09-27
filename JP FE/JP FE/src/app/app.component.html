@@ -1,0 +1,42 @@
+<div class="main-content">
+
+    <mat-drawer-container class="example-container" autosize>   
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <div class="row text-center mt-4 custom-bg">
+
+
+                <div class="col-12 clickable" *ngFor="let menu of mainMenu" (click)="drawer.toggle()" [routerLink]="[menu.url]">
+                    <h3> {{ menu.title }} </h3>
+                </div>
+
+                <div class="col-12 clickable" (click)="drawer.toggle()" *ngIf="isLoginPage" [routerLink]="['/login']">
+                    <h3>Login</h3>
+                </div>
+
+                <div class="col-12 clickable" *ngIf="!isLoginPage" (click)="drawer.toggle();logout()">
+                    <h3>Logout</h3>
+                </div>
+            </div>
+        </mat-drawer>
+
+        <div class="header">
+            <div class="row justify-content-between">
+
+                <div class="col-auto">
+                    <button mat-icon-button class="custom-margin" (click)="drawer.toggle()"
+                        aria-label="Example icon button with a menu icon">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+
+                <div class="col-auto">
+                    <h1>Job Portal</h1>
+                </div>
+            </div>
+
+        </div>
+
+        <router-outlet></router-outlet>
+    </mat-drawer-container>
+
+</div>

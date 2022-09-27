@@ -1,0 +1,48 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="row justify-content-start">
+                <div class="col-auto">
+                    <h3> Candidates List </h3>
+                </div>
+                <hr>
+                <div class="col-12 text-center">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Experience</th>
+                                <th>Candidate Name</th>
+                                <th>Candidate Education</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of candidatesList">
+                                <td> {{ data.name }} </td>
+                                <td> {{ data.experience }} </td>
+                                <td> {{ data.jobseeker.name }} </td>
+                                <td> {{ data.jobseeker.education }} </td>
+                                <td>
+                                    <ng-container [ngSwitch]="data.status">
+                                        <span style="color: red;" *ngSwitchCase="'rejected'"> Rejected </span>
+                                        <span style="color: green;" *ngSwitchCase="'selected'"> Selected </span>
+                                        <ng-container *ngSwitchDefault="">
+                                            <button mat-raised-button color="warn"
+                                                (click)="reject(data)">Reject</button>
+                                            &nbsp;&nbsp;
+                                            <button mat-raised-button color="primary"
+                                                (click)="select(data)">Select</button>
+                                        </ng-container>
+                                    </ng-container>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Applied Jobs</h3>
+                    <hr>
+                </div>
+                <div class="col-12 text-center">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Company</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of historyList">
+                                <td> {{ data.name }} </td>
+                                <td> {{ data.company_name }} </td>
+                                <td [class]="data.status"> 
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto mt-1">
+                                            <p> {{ data.status | titlecase }} </p>
+                                        </div>
+                                        <div class="col-auto" *ngIf="data.status == 'selected'">
+                                            <mat-icon matTooltip="View Interview Scheduled" (click)="view(data)">info</mat-icon>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row justify-content-center custom-bg main-body">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Manage Candidates</h3>
+                    <hr>
+                </div>
+                <div class="col-12 text-center">
+                    <table class="table table-responsive table-bordered table-striped table-hover">
+                        <thead class="table-info">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Education</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of candidatesList">
+                                <td> {{ data.name }} </td>
+                                <td> {{ data.email }} </td>
+                                <td> {{ data.education }} </td>
+                                <td> {{ data.address }} </td>
+                                <td> {{ data.no }} </td>
+                                <td>
+                                    <button mat-mini-fab color="warn" matTooltip="Delete Candidate"
+                                        (click)="delete(data.id)">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
